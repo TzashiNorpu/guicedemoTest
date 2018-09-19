@@ -1,5 +1,8 @@
 package com.demo.helloWorldDemo;
 
+import javax.inject.Inject;
+import com.google.inject.Provider;
+
 /**
  * @program: guicedemoTest
  * @description: StringWritingApplet
@@ -9,9 +12,9 @@ package com.demo.helloWorldDemo;
 public class StringWritingApplet implements MyApplet {
 
     private Mydestination destination;
-    private StringProvider stringProvider;
-
-    public StringWritingApplet(Mydestination destination, StringProvider stringProvider) {
+    private Provider<String> stringProvider;
+    @Inject
+    public StringWritingApplet(Mydestination destination, Provider<String> stringProvider) {
         this.destination = destination;
         this.stringProvider = stringProvider;
     }

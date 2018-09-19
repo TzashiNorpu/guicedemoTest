@@ -1,7 +1,9 @@
 package com.demo;
 
 import com.demo.helloWorldDemo.Configuration;
+import com.demo.helloWorldDemo.MainModule;
 import com.demo.helloWorldDemo.MyApplet;
+import com.google.inject.Guice;
 
 
 /**
@@ -13,7 +15,9 @@ import com.demo.helloWorldDemo.MyApplet;
  */
 public class App  {
     public static void main(String[] args) {
-        MyApplet mainApplet = Configuration.getMainApplet();
+//        MyApplet mainApplet = Configuration.getMainApplet();
+        MyApplet mainApplet = Guice.createInjector(new MainModule())
+                .getInstance(MyApplet.class);
         mainApplet.run();
     }
 }
