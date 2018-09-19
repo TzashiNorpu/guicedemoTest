@@ -8,6 +8,11 @@ package com.demo.helloWorldDemo;
  **/
 public class Configuration {
     public static MyApplet getMainApplet() {
-        return new HelloWorldPrinter();
+        return new StringWritingApplet(new PrintStreamWriter(System.out), new StringProvider() {
+            @Override
+            public String get() {
+                return "Hello";
+            }
+        });
     }
 }
